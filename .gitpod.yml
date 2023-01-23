@@ -1,5 +1,23 @@
-FROM gitpod/workspace-full:latest
-
-RUN bash -c ". .nvm/nvm.sh     && nvm install 14     && nvm use 14     && nvm alias default 14"
-
-RUN echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
+image:
+  file: .gitpod.Dockerfile
+# tasks:
+#   - name: Strapi
+#     init: >
+#       cd /workspace/elemental-bromine/api &&
+#       yarn install &&
+#       yarn build &&
+#       gp sync-done strapi
+#     command: yarn start
+#  - name: Vue.js
+#    init: |
+#      cd /workspace/elemental-bromine/client &&
+#      gp sync-await strapi
+#      yarn install
+#    command: yarn dev
+ports:
+  - port: 1337
+    onOpen: open-browser
+    visibility: public
+  - port: 5173
+    onOpen: open-browser
+    visibility: public
