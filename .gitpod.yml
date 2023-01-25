@@ -3,13 +3,13 @@ image:
 tasks:
   - name: Strapi
     init: >
-      cd /workspace/elemental-bromine/api &&
+      cd /workspace/tip-blog/api &&
       yarn install &&
       gp sync-done strapi
     command: yarn develop
 #  - name: Vue.js
 #    init: |
-#      cd /workspace/elemental-bromine/client &&
+#      cd /workspace/tip-blog/client &&
 #      gp sync-await strapi
 #      yarn install
 #    command: yarn dev
