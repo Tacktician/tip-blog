@@ -5,6 +5,10 @@ tasks:
     init: >
       cd /workspace/tip-blog/api &&
       yarn install &&
+      echo ADMIN_JWT_SECRET=$ADMIN_JWT_SECRET >> .env &&
+      echo API_TOKEN_SALT=$API_TOKEN_SALT >> .env &&
+      echo APP_KEYS=$APP_KEYS >> .env &&
+      echo JWT_SECRET=$JWT_SECRET >> .env &&
       gp sync-done strapi
     command: yarn develop
 #  - name: Vue.js
