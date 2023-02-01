@@ -2,14 +2,23 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - name: Strapi
+    env:
+      ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+      API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+      APP_KEYS: ${{ secrets.APP_KEYS }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
     init: >
-      cd /workspace/elemental-bromine/api &&
+      cd /workspace/tip-blog/api &&
       yarn install &&
+      echo ADMIN_JWT_SECRET=$ADMIN_JWT_SECRET >> .env &&
+      echo API_TOKEN_SALT=$API_TOKEN_SALT >> .env &&
+      echo APP_KEYS=$APP_KEYS >> .env &&
+      echo JWT_SECRET=$JWT_SECRET >> .env &&
       gp sync-done strapi
     command: yarn develop
 #  - name: Vue.js
 #    init: |
-#      cd /workspace/elemental-bromine/client &&
+#      cd /workspace/tip-blog/client &&
 #      gp sync-await strapi
 #      yarn install
 #    command: yarn dev

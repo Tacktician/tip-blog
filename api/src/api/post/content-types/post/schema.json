@@ -36,12 +36,6 @@
         "images"
       ]
     },
-    "seoTitle": {
-      "type": "string"
-    },
-    "seoDescription": {
-      "type": "text"
-    },
     "authors": {
       "type": "relation",
       "relation": "oneToMany",
@@ -51,6 +45,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "seo": {
+      "displayName": "seoInformation",
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo-information"
     }
   }
 }
